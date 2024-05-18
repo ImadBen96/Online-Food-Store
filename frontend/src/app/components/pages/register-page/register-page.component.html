@@ -1,0 +1,44 @@
+<app-title title="Register Page"></app-title>
+<div class="login-page">
+  <div class="form">
+    <form  [formGroup]="registerForm" (ngSubmit)="submit()" class="login-form">
+      <div>
+        <input type="text" placeholder="Name" formControlName="name" />
+        <div class="error-list" *ngIf="fc.name.errors && isSubmitted">
+          <div *ngIf="fc.name.errors.required">Name Should Not Be Empty</div>
+          <div *ngIf="fc.name.errors.minlength">Name Must Be Greater Than 5</div>
+        </div>
+      </div>
+      <div>
+        <input type="email" placeholder="Email" formControlName="email" />
+        <div class="error-list" *ngIf="fc.email.errors && isSubmitted">
+          <div *ngIf="fc.email.errors.required">Email Should Not Be Empty</div>
+          <div *ngIf="fc.email.errors.email">Email Is Not Valid</div>
+        </div>
+      </div>
+      <div>
+        <input type="password" placeholder="Password" formControlName="password" />
+        <div class="error-list" *ngIf="fc.password.errors && isSubmitted">
+          <div *ngIf="fc.password.errors.required">Password Should Not Be Empty</div>
+          <div *ngIf="fc.password.errors.minlength">Password Must Be Greater Than 5</div>
+        </div>
+      </div>
+      <div>
+        <input type="password" placeholder="Comfirm Password" formControlName="confirmPassword" />
+        <div class="error-list" *ngIf="fc.confirmPassword.errors && isSubmitted">
+          <div *ngIf="fc.confirmPassword.errors.required">Confirm Password Should Not Be Empty</div>
+          <div *ngIf="fc.confirmPassword">Confirm Password Is Much</div>
+        </div>
+      </div>
+      <div>
+        <textarea placeholder="Address" cols="8" rows="8" formControlName="address"></textarea>
+        <div class="error-list" *ngIf="fc.address.errors && isSubmitted">
+          <div *ngIf="fc.address.errors.required">Address Should Not Be Empty</div>
+          <div *ngIf="fc.address.errors.minlength">Address Must Be Greater Than 10</div>
+        </div>
+      </div>
+      <button type="submit">Register</button>
+      <p class="message">Have A Account? <a routerLink="/login">Login</a></p>
+    </form>
+  </div>
+</div>

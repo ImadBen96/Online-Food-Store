@@ -1,0 +1,14 @@
+.banner {
+  color: white;
+  background: url('../../../../assets/banner03.jpg') top left/cover no-repeat;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/*banner css*/
+.banner h1, .banner h3, .banner h6 {
+  margin: 0;
+  text-shadow: 2px 2px 6px #000;
+  text-align: center;
+}

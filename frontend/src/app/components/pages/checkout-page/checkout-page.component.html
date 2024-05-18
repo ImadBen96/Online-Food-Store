@@ -1,0 +1,24 @@
+<app-title title="Checkout Page" margin="1.5rem 0 0 2.5rem"></app-title>
+
+<div class="container">
+  <div class="content">
+    <form [formGroup]="checkoutForm">
+      <input type="text" name="name" formControlName="name" placeholder="Name" [value]="fc.name"  />
+      <input type="email" name="email" placeholder="Email" formControlName="email"  />
+      <textarea cols="7" rows="7" placeholder="Address" formControlName="address">{{fc.address.value}}</textarea>
+    </form>
+
+    <div class="map">
+      <app-order-items-list [order]="order"></app-order-items-list>
+    </div>
+    <div class="buttons-container">
+      <div class="buttons">
+        <button (click)="createOrder()">
+          Go To Payment
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+</div>

@@ -1,0 +1,29 @@
+<app-title title="Order Details" margin="1.5rem 0 0 2.5rem"></app-title>
+<div class="container">
+  <div class="content">
+    <div class="summary">
+      <h2 class="title">User Details</h2>
+      <div>
+        <h3>Name:</h3>
+        <span>{{order.name}}</span>
+      </div>
+      <div>
+        <h3>Address:</h3>
+        <span>{{order.address}}</span>
+      </div>
+    </div>
+    <app-order-items-list [order]="order"></app-order-items-list>
+    <div class="map">
+      <h1 class="title">Shipping Address</h1>
+      <div>
+        <span>{{order.addressLatLng}}</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="buttons-container">
+    <div class="buttons">
+        <app-paypal-button [order]="order"></app-paypal-button>
+    </div>
+  </div>
+</div>

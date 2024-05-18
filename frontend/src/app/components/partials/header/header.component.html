@@ -1,0 +1,52 @@
+<!-- Sticky header -->
+<header class="header-outer">
+	<div class="header-inner responsive-wrapper">
+		<div class="header-logo">
+      <img src="../../../../assets/logo01.png" />
+		</div>
+		<nav class="header-navigation">
+      <a routerLink="/">
+        Home
+      </a>
+			<a routerLink="about-us">About</a>
+			<a routerLink="contact-us">Contact Us</a>
+      <a *ngIf="!isAuth" routerLink="login">
+        Login
+      </a>
+    <li *ngIf="isAuth" class="menu-container">
+      <a routerLink="/dashboard">{{user.name}}</a>
+      <div class="menu">
+        <a routerLink="/profile">Orders</a>
+        <a (click)="logout()">Logout</a>
+      </div>
+    </li>
+      <a routerLink="cart">
+          Cart <span class="total-count-quantity">@if (cartQuantity) {  {{cartQuantity}} }@else { 0 }</span>
+      </a>
+      <button style="text-align: end;cursor: pointer;" (click)="toogleMenu()"><img style="width: 34%;" src="assets/menu.png" /></button>
+		</nav>
+
+	</div>
+  <div class="show-menu" [ngClass]="status ? 'menu-mobile' : '' ">
+    <ul class="list-menu-mobile">
+      <li><a routerLink="/">Home</a></li>
+      <li><a routerLink="/about-us">About Us</a></li>
+      <li><a routerLink="/contact-us">Contact Us</a></li>
+      <li *ngIf="isAuth"><a style="cursor: pointer;" (click)="logout()">Logout</a></li>
+      <li *ngIf="!isAuth"><a routerLink="login">Login</a></li>
+      <li><a routerLink="/cart">Cart(<span>@if (cartQuantity) {  {{cartQuantity}} }@else { 0 }</span>)</a></li>
+    </ul>
+  </div>
+</header>
+<!-- Content<main class="main">
+	<div class="main-content responsive-wrapper">
+		<article class="widget">
+			<h2>How does it work without JS? 🤯</h2>
+			<p>This sticky header consists of two elements: an <strong>outer</strong> and an <strong>inner</strong> container. The outer container is taller than the inner — and the inner is centered vertically.
+			<p>By utilizing the <code>position: sticky</code> property <strong>twice</strong>, both on the header's <strong>outer container</strong> and <strong>inner container</strong> the outer container will stick to the <code>body</code>, while the inner container will stick to the outer container.</p>
+			<p>Note that the outer container has a negative <code>top</code> value equal to the height difference between the two containers. This causes the outer container to stick <strong>above</strong> the <code>body</code>, making the inner container stick to the "ceiling" on scroll.
+			<p></p>
+		</article>
+	</div>
+</main> -->
+
