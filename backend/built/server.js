@@ -11,9 +11,12 @@ var food_router_1 = __importDefault(require("./routers/food.router"));
 var user_router_1 = __importDefault(require("./routers/user.router"));
 var database_config_1 = require("./configs/database.config");
 var order_router_1 = __importDefault(require("./routers/order.router"));
+var path_1 = __importDefault(require("path"));
 (0, database_config_1.dbConnect)();
 var app = (0, express_1.default)();
 app.use(express_1.default.json());
+//app.use('/', express.static('../dist/frontend/browser/index.html'));
+app.use(express_1.default.static(path_1.default.resolve('../../frontend/dist/frontend/browser')));
 app.use((0, cors_1.default)({
     credentials: true,
     origin: ["http://localhost:4200"]
