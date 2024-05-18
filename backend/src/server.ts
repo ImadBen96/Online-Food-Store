@@ -11,10 +11,10 @@ dbConnect();
 
 const app = express();
 app.use(express.json());
-
+app.use('/', express.static('dist'))
 app.use(cors({
     credentials: true,
-    origin: ["https://online-food-store-s8i9.onrender.com"]
+    origin: ["http://localhost:4200"]
 }));
 
 app.use("/api/foods",foodRouter);
