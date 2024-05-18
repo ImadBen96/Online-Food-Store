@@ -15,7 +15,7 @@ const app = express();
 app.use(express.json());
 //app.use('/', express.static('../dist/frontend/browser/index.html'));
 
-app.use(express.static(path.resolve('../../frontend/dist/frontend/browser')));
+app.use(express.static(path.join(__dirname, '../dist/frontend/browser')));
   
 app.use(cors({
     credentials: true,
@@ -27,6 +27,9 @@ app.use("/api/foods",foodRouter);
 app.use("/api/users",userRouter);
 app.use("/api/orders",orderRouter);
 
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../dist/frontend/browser/index.html'));
+});
 const port = 5000;
 app.listen(port,() => {
     console.log("WebSite Served On http://localhost:"+port);
